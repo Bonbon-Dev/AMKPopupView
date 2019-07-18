@@ -2,7 +2,7 @@
 //  AMKPopupView.h
 //  AMKPopupView
 //
-//  Created by Andy Meng on 2019/7/18.
+//  Created by https://github.com/AndyM129/AMKPopupView on 2019/7/18.
 //
 
 #import <UIKit/UIKit.h>
@@ -43,7 +43,7 @@ typedef void(^AMKPopupViewAnimationCallbackBlock)(AMKPopupView *popupView);     
 @property(nonatomic, readonly) BOOL isAnimating;                                        //!< 是否正在动画
 @property(nonatomic, assign) BOOL dismissWhenTapped;                                    //!< 点击背景移除弹框（默认NO）
 @property(nonatomic, assign) BOOL removeFromSuperviewWhenDismissed;                     //!< 移除时并从父视图移除（默认Yes）
-@property(nonatomic, strong) UIView *contentView;                                       //!< 弹窗主体自定义视图
+@property(nonatomic, strong) UIView *contentView;                                       //!< 弹窗主体自定义视图（须指定size，否则与弹窗视图等大）
 @property(nonatomic, assign) UIOffset contentViewOffset;                                //!< 弹窗主体自定义视图居中偏移
 @property(nonatomic, strong) UITapGestureRecognizer * tapGestureRecognizer;             //!< 点击手势
 @property(nonatomic, copy) AMKPopupViewContentAnimationBlock contentViewAnimationBlock; //!< 内容视图的显隐动画

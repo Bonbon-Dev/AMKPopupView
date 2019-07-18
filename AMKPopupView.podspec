@@ -22,6 +22,13 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.default_subspec = 'AMKPopupViewPriority'
   
+  # ActionSheet
+  s.subspec 'AMKActionSheet' do |actionSheet|
+      actionSheet.source_files = 'AMKPopupView/Classes/ActionSheet/*.{h,m}'
+      actionSheet.dependency 'AMKPopupView/AMKPopupView'
+      actionSheet.dependency 'Masonry'
+  end
+
   # 弹窗优先级相关扩展
   s.subspec 'AMKPopupViewPriority' do |priority|
       priority.source_files = 'AMKPopupView/Classes/PopupViewPriority/*.{h,m}'

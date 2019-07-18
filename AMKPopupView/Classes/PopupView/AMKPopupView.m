@@ -2,7 +2,7 @@
 //  AMKPopupView.m
 //  AMKPopupView
 //
-//  Created by Andy Meng on 2019/7/18.
+//  Created by https://github.com/AndyM129/AMKPopupView on 2019/7/18.
 //
 
 #import "AMKPopupView.h"

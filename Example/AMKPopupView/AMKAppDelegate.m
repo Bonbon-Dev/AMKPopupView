@@ -2,8 +2,8 @@
 //  AMKAppDelegate.m
 //  AMKPopupView
 //
-//  Created by Andy Meng on 07/18/2019.
-//  Copyright (c) 2019 https://github.com/AndyM129/AMKPopupView . All rights reserved.
+//  Created by https://github.com/AndyM129/AMKPopupView on 07/18/2019.
+//  Copyright (c) 2019 Andy Meng. All rights reserved.
 //
 
 #import "AMKAppDelegate.h"
