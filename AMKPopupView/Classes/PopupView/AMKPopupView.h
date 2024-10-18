@@ -24,7 +24,7 @@ typedef void(^AMKPopupViewAnimationCallbackBlock)(AMKPopupView *popupView);     
 /// 弹窗视图
 @interface AMKPopupView : UIView <AMKPopupViewProtocol, UIGestureRecognizerDelegate> {
 @protected
-    UIImageView *_maskView;                                                             //!< 遮罩背景
+    UIImageView *_imageMaskView;                                                        //!< 遮罩背景
     CGFloat _animationDuration;                                                         //!< 动画时长
     BOOL _animating;                                                                    //!< 是否正在动画
     BOOL _dismissWhenTapped;                                                            //!< 点击背景移除弹框（默认NO）
@@ -37,7 +37,7 @@ typedef void(^AMKPopupViewAnimationCallbackBlock)(AMKPopupView *popupView);     
     AMKPopupViewAnimationCallbackBlock _willDismissBlock;                               //!< 弹窗视图的将要开始移除动画的回调
     AMKPopupViewAnimationCallbackBlock _didDismissBlock;                                //!< 弹窗视图的完成隐藏动画的回调
 }
-@property(nonatomic, strong) UIImageView *maskView;                                     //!< 遮罩背景
+@property(nonatomic, strong) UIImageView *imageMaskView;                                //!< 遮罩背景
 @property(nonatomic, assign) CGFloat animationDuration;                                 //!< 动画时长
 @property(nonatomic, assign) AMKPopupViewStatus status;                                 //!< 显示状态
 @property(nonatomic, readonly) BOOL isAnimating;                                        //!< 是否正在动画

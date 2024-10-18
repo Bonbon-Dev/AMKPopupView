@@ -9,7 +9,7 @@
 #import <Masonry/Masonry.h>
 
 @implementation AMKPopupView
-@synthesize maskView = _maskView;
+@synthesize imageMaskView = _imageMaskView;
 @synthesize animationDuration = _animationDuration;
 @synthesize dismissWhenTapped = _dismissWhenTapped;
 @synthesize removeFromSuperviewWhenDismissed = _removeFromSuperviewWhenDismissed;
@@ -34,7 +34,7 @@
         self.animationDuration = 0.3;
         self.dismissWhenTapped = NO;
         self.removeFromSuperviewWhenDismissed = YES;
-        self.maskView.alpha = 0;
+        self.imageMaskView.alpha = 0;
         self.tapGestureRecognizer.numberOfTapsRequired = 1;
         self.contentViewOffset = UIOffsetMake(0, 0);
     }
@@ -46,18 +46,17 @@
 - (BOOL)isAnimating {
     return (self.status==AMKPopupViewStatusShowing || self.status==AMKPopupViewStatusDismissing) ? YES : NO;
 }
-
-- (UIImageView *)maskView {
-    if (!_maskView) {
-        _maskView = [UIImageView new];
-        _maskView.clipsToBounds = YES;
-        _maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
-        [self addSubview:_maskView];
-        [_maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+- (UIImageView *)imageMaskView {
+    if (!_imageMaskView) {
+        _imageMaskView = [UIImageView new];
+        _imageMaskView.clipsToBounds = YES;
+        _imageMaskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+        [self addSubview:_imageMaskView];
+        [_imageMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self);
         }];
     }
-    return _maskView;
+    return _imageMaskView;
 }
 
 - (UITapGestureRecognizer *)tapGestureRecognizer {
@@ -188,7 +187,7 @@
     [self layoutSubviews];
     self.hidden = NO;
     self.willShowBlock==nil ?: self.willShowBlock(self);
-    self.maskViewAnimationBlock(self.maskView, YES, animated?_animationDuration:0);
+    self.maskViewAnimationBlock(self.imageMaskView, YES, animated?_animationDuration:0);
     if (self.contentView) self.contentViewAnimationBlock(self.contentView, YES, animated?_animationDuration:0);
     
     __weak __typeof(self) weakSelf = self;
@@ -205,7 +204,7 @@
 - (void)dismissAnimated:(BOOL)animated {
     self.status = AMKPopupViewStatusDismissing;
     self.willDismissBlock==nil ?: self.willDismissBlock(self);
-    self.maskViewAnimationBlock(self.maskView, NO, animated?_animationDuration:0);
+    self.maskViewAnimationBlock(self.imageMaskView, NO, animated?_animationDuration:0);
     if (self.contentView) self.contentViewAnimationBlock(self.contentView, NO, animated?_animationDuration:0);
     
     __weak __typeof(self) weakSelf = self;
